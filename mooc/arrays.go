@@ -2,11 +2,11 @@ package main
 
 import "fmt"
 
-func modifyArrCost(a [5]int) {
+func modifyArrVal(a [5]int) {
 	a[1] = 20
 }
 
-func modifyArrQuote(a *[5]int) {
+func modifyArrRef(a *[5]int) {
 	a[1] = 20
 }
 
@@ -23,6 +23,10 @@ func main() {
 
 	arr_3 := [5]int{1, 2, 3, 4, 5}
 	fmt.Println(arr_3)
+
+	for i, v := range arr_3 {
+		fmt.Println(i, v)
+	}
 
 	arr_4 := [...]int{1, 2, 3, 4, 5, 6}
 	fmt.Println(arr_4)
@@ -41,8 +45,8 @@ func main() {
 	fmt.Println(arr_8)
 
 	var arr = [5]int{1, 2, 3, 4, 5}
-	modifyArrCost(arr)
+	modifyArrVal(arr)
 	fmt.Println(arr)
-	modifyArrQuote(&arr)
+	modifyArrRef(&arr)
 	fmt.Println(arr)
 }
