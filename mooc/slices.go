@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+func updateSlice(s []int) {
+	s[0] = 100
+}
+
 func main() {
 	// 切片是一种动态数组，比数组操作灵活，长度不是固定的，可以进行追加和删除。 len() 和 cap() 返回结果可相同和不同
 
@@ -30,6 +34,9 @@ func main() {
 	fmt.Println("sli[:] ==", sli[:])
 	fmt.Println("sli[1:] ==", sli[1:])
 	fmt.Println("sli[:4] ==", sli[:4])
+	s2 := sli[1:]
+	updateSlice(s2)
+	fmt.Println(s2)
 
 	fmt.Println("sli[0:3] ==", sli[0:3])
 	fmt.Printf("len=%d cap=%d slice=%v\n", len(sli[0:3]), cap(sli[0:3]), sli[0:3])
@@ -37,4 +44,6 @@ func main() {
 	fmt.Println("sli[0:3:4] ==", sli[0:3:4])
 	// index 0:3 cap=4
 	fmt.Printf("len=%d cap=%d slice=%v\n", len(sli[0:3:4]), cap(sli[0:3:4]), sli[0:3:4])
+	updateSlice(sli)
+	fmt.Println(sli)
 }
