@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 func main() {
 	m := map[string]string{
@@ -14,6 +17,15 @@ func main() {
 	for k, v := range m {
 		fmt.Println(k, v)
 	}
+	//序列化
+	jsons, errs := json.Marshal(m)
+	if errs != nil {
+		fmt.Println("json marshal error:", errs)
+	}
+	fmt.Println("")
+	fmt.Println("--- map to json ---")
+	fmt.Println("json data :", string(jsons))
+
 	fmt.Println("Getting values")
 	courseName := m["course"]
 	fmt.Println(courseName)
@@ -31,4 +43,5 @@ func main() {
 	delete(m, "name")
 	name, ok = m["name"]
 	fmt.Println(name, ok)
+
 }
