@@ -1,3 +1,3 @@
-module tree
+module mooc/tree
 
 go 1.17

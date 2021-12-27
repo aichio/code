@@ -1,21 +1,21 @@
 package main
 
 import (
-	"mooc/tree"
 	"fmt"
+	"mooc/tree"
 )
 
 type myTreeNode struct {
-	node *tree.Node
+	*tree.Node
 }
 
 func (myNode *myTreeNode) postOrder() {
 	if myNode.node == nil || myNode.node == nil {
 		return
 	}
-	left := myTreeNode{myNode.node.Left}
+	left := myTreeNode{myNode.Left}
 	left.postOrder()
-	right := myTreeNode{myNode.node.Right}
+	right := myTreeNode{myNode.Right}
 	right.postOrder()
 	myNode.node.Print()
 }
