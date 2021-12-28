@@ -1,8 +1,8 @@
 package main
 
 import (
+	"code/mooc/tree"
 	"fmt"
-	"mooc/tree"
 )
 
 type myTreeNode struct {
@@ -21,8 +21,8 @@ func (myNode *myTreeNode) postOrder() {
 }
 
 func main() {
-	var root tree.Node
-	fmt.Println(root)
+	// var root tree.Node
+	// fmt.Println(root)
 
 	// root = tree.Node{Value: 3}
 	root := myTreeNode{&tree.Node{Value: 3}}
