@@ -60,7 +60,14 @@ func swapRef(a, b *int) {
 	*a, *b = *b, *a
 }
 
+func return_slice() []string {
+	slice := []string{"a", "b", "c"}
+	return slice
+}
+
 func main() {
+	test := return_slice()
+	fmt.Println(test)
 	// fmt.Println(eval(3, 4, "*"))
 	if result, err := eval(3, 4, "x"); err != nil {
 		fmt.Println(err)

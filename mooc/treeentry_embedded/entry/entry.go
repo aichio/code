@@ -1,35 +1,39 @@
 package main
 
 import (
+	tree "code/mooc/treeentry_embedded"
 	"fmt"
-	"mooc/tree"
 )
 
 type myTreeNode struct {
 	*tree.Node
 }
 
+func (myNode *myTreeNode) Traverse() {
+	fmt.Println("This method is shadowed.")
+}
+
 func (myNode *myTreeNode) postOrder() {
-	if myNode.node == nil || myNode.node == nil {
+	if myNode == nil || myNode.Node == nil {
 		return
 	}
 	left := myTreeNode{myNode.Left}
 	left.postOrder()
 	right := myTreeNode{myNode.Right}
 	right.postOrder()
-	myNode.node.Print()
+	myNode.Print()
 }
 
 func main() {
 	var root tree.Node
 	fmt.Println(root)
 
-	root = tree.Node{value: 3}
-	root.left = &tree.Node{}
-	root.right = &tree.Node{5, nil, nil}
-	root.right.left = new(tree.Node)
-	root.left.right = CreateNode(2)
-	root.traverse()
+	root = tree.Node{Value: 3}
+	root.Left = &tree.Node{}
+	root.Right = &tree.Node{5, nil, nil}
+	root.Right.Left = new(tree.Node)
+	root.Left.Right = tree.CreateNode(2)
+	root.Traverse()
 	// fmt.Println(root)
 	// nodes := []tree.Node{
 	// 	{value: 3},
@@ -48,5 +52,4 @@ func main() {
 	myRoot := myTreeNode{&root}
 	myRoot.postOrder()
 	fmt.Println()
-
 }
